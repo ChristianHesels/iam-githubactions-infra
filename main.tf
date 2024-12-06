@@ -38,33 +38,7 @@ resource "aws_iam_policy" "iam_policy" {
   name = "${var.policy_name}"
   description = "Policy for accessing S3 and CloudFront"
 
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Sid    = "VisualEditor0"
-        Effect = "Allow"
-        Action = [
-          "s3:PutObject",
-          "s3:GetObject",
-          "s3:ListBucket"
-        ]
-        Resource = [
-          var.s3_bucket_arn,
-          "${var.s3_bucket_arn}/*"
-        ]
-      },
-      {
-        Effect = "Allow"
-        Action = [
-          "cloudfront:CreateInvalidation"
-        ]
-        Resource = [
-          var.cloudfront_arn
-        ]
-      }
-    ]
-  })
+  policy = jsonencode(var.json_policy)
 }
 
 resource "aws_iam_role_policy_attachment" "attach_policy" {

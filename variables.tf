@@ -21,3 +21,7 @@ variable "s3_bucket_arn" {
 variable "cloudfront_arn" {
     type = string
 }
+
+variable "json_policy" {
+    type = string
+}
