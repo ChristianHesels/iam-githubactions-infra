@@ -14,14 +14,6 @@ variable "github_repo" {
   type    = string
 }
 
-variable "s3_bucket_arn" {
-    type = string
-}
-
-variable "cloudfront_arn" {
-    type = string
-}
-
 variable "json_policy" {
     type = string
 }
