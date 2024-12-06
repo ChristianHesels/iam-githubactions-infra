@@ -38,7 +38,7 @@ resource "aws_iam_policy" "iam_policy" {
   name = "${var.policy_name}"
   description = "Policy for accessing S3 and CloudFront"
 
-  policy = jsonencode(var.json_policy)
+  policy = var.json_policy
 }
 
 resource "aws_iam_role_policy_attachment" "attach_policy" {
